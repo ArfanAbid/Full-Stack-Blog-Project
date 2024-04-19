@@ -4,6 +4,7 @@ pyyaml
 djangorestframework-simplejwt
 pillow
 django-filter
+django-cors-headers
 #mysql
 #mysql-connector-python
 #mysql-connector-python
