@@ -1,35 +1,43 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import api from '../../Utils/api';
+import { useNavigate } from 'react-router-dom';
+
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const handleLogin = async () => {
-        // Simulate login logic
-        console.log('Logging in...');
-        setIsLoggedIn(true);
-    };
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         // Call the logout API
         fetch('http://127.0.0.1:8000/user/logout/', {
-            method: 'POST', // or 'GET'
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 // Include any other necessary headers, such as authentication tokens
             },
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Logout failed');
+            }
+            return response.json();
+        })
         .then(data => {
             console.log('Success:', data);
-            // Update the isLoggedIn state to reflect that the user is logged out
+            // Remove the JWT token from local storage
+            localStorage.clear(); // Assuming 'jwtToken' is the key used to store the JWT token
             setIsLoggedIn(false);
+            navigate('/login'); // Use replace option to prevent going back to the previous page
         })
         .catch((error) => {
             console.error('Error:', error);
+            // Optionally, show an error message to the user
         });
     };
     
+
+ 
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-600 ">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -49,26 +57,22 @@ function Header() {
                         <li>
                             <NavLink to='/contact' className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</NavLink>
                         </li>
-                        {!isLoggedIn && (
-                            <>
+                                <li>
+                                    <button onClick={handleLogout} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</button>
+                                </li>
                                 <li>
                                     <NavLink to='/login' className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/register' className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</NavLink>
                                 </li>
-                            </>
-                        )}
-                        {isLoggedIn && (
-                            <li>
-                                <button onClick={handleLogout}>Logout</button>
-                            </li>
-                        )}
+                
                     </ul>
                 </div>
             </div>
         </nav>
     );
 }
+
 
 export default Header;

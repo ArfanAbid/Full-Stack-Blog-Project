@@ -31,7 +31,7 @@ function Login() {
       const { access, refresh } = data;
       localStorage.setItem('access_token', access);
       localStorage.setItem('refresh_token', refresh);
-      navigate('/'); // Redirect to home page
+      navigate('/myblog'); // Redirect to home page
     } catch (error) {
       console.error('There was a problem with your fetch operation:', error);
       setMessage('There was a problem with your login. Please try again.');
