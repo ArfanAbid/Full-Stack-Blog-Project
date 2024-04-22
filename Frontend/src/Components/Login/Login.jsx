@@ -6,7 +6,7 @@ function Login() {
  const [password, setPassword] = useState('');
  const [message, setMessage] = useState('');
  const navigate = useNavigate();
-
+// const [isAuthenticated,setisAuthenticated] = useState(false); 
  const handleSubmit = async (event) => {
     event.preventDefault();
     setMessage('');
@@ -31,6 +31,7 @@ function Login() {
       const { access, refresh } = data;
       localStorage.setItem('access_token', access);
       localStorage.setItem('refresh_token', refresh);
+      localStorage.setItem("isAuthenticated", true);
       navigate('/myblog'); // Redirect to home page
     } catch (error) {
       console.error('There was a problem with your fetch operation:', error);

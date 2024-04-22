@@ -36,7 +36,7 @@ function MyBlog() {
         <section className="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
           {blogs.map((blog) => (
             <article key={blog.uid} className="relative w-full h-64 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out"
-              style={{ backgroundImage: `url(${blog.image})` }}
+              style={{ backgroundImage: `url('http://127.0.0.1:8000/${blog.image}')` }}
               >
               <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
               <div className="relative w-full h-full px-4 sm:px-6 lg:px-4 flex justify-center items-center">
