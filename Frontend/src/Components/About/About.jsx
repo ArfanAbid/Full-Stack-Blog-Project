@@ -4,144 +4,36 @@ function About() {
   return (
     <>
       <div class="w-full">
-        <div class="flex bg-white h-screen">
-          <div class="flex items-center text-center bg-gray-100  lg:text-left px-8 md:px-12 lg:w-1/2">
-            <div className="bg-gray-100 min-h-screen py-2 px-4 sm:px-6 lg:px-8">
-              <div className="max-w-3xl ">
-                <h1 className="text-3xl font-bold  mb-4">About IFFIONEX</h1>
-                <p className="text-lg text-gray-700 mb-6">
-                  Welcome to IFFIONEX, your go-to destination for the latest in
-                  technology news, insights, and reviews. At IFFIONEX, we're
-                  passionate about exploring the ever-evolving world of
-                  technology and sharing our knowledge with our readers.
-                </p>
-                <p className="text-lg text-gray-700 mb-6">
-                  Our team of experienced writers and tech enthusiasts is
-                  dedicated to providing you with high-quality content covering
-                  a wide range of topics including software, hardware, gadgets,
-                  programming, cybersecurity, artificial intelligence, and much
-                  more.
-                </p>
-                <p className="text-lg text-gray-700 mb-6">
-                  Whether you're a seasoned tech professional or a curious
-                  beginner, IFFIONEX has something for everyone. Stay updated
-                  with the latest trends, discover tips and tricks, and dive
-                  deep into the fascinating world of technology with us.
-                </p>
-                <p className="text-lg text-gray-700">
-                  Thank you for visiting IFFIONEX. We hope you enjoy your time
-                  here and find our content informative and inspiring.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="hidden  lg:block lg:w-1/2">
-            <div
-              class="h-full object-cover"
-              style={{
-                backgroundImage: "url('https://source.unsplash.com/random')",
-              }}
-            >
-              <div class="h-full bg-blue-500 opacity-50"></div>
-            </div>
-          </div>
+ <div class="flex bg-white h-screen">
+    <div class="flex items-center text-center bg-gray-100 lg:text-left px-8 md:px-12 lg:w-1/2">
+      <div class="bg-gray-100 min-h-screen py-2 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-3xl font-bold text-gray-900 mb-4">About IFFIONEX</h1>
+          <p class="text-lg text-gray-700 mb-6">
+            Welcome to IFFIONEX, your go-to destination for the latest in technology news, insights, and reviews. At IFFIONEX, we're passionate about exploring the ever-evolving world of technology and sharing our knowledge with our readers.
+          </p>
+          <p class="text-lg text-gray-700 mb-6">
+            Our team of experienced writers and tech enthusiasts is dedicated to providing you with high-quality content covering a wide range of topics including software, hardware, gadgets, programming, cybersecurity, artificial intelligence, and much more.
+          </p>
+          <p class="text-lg text-gray-700 mb-6">
+            Whether you're a seasoned tech professional or a curious beginner, IFFIONEX has something for everyone. Stay updated with the latest trends, discover tips and tricks, and dive deep into the fascinating world of technology with us.
+          </p>
+          <p class="text-lg text-gray-700">
+            Thank you for visiting IFFIONEX. We hope you enjoy your time here and find our content informative and inspiring.
+          </p>
         </div>
       </div>
-
+    </div>
+    <div class="hidden lg:block lg:w-1/2  bg-gray-100">
+      <div class="w-[80%] h-[80%] object-cover rounded-2xl mt-10" style={{ backgroundImage: "url('https://source.unsplash.com/random')" }}>
+        <div class="h-full bg-gray-500 rounded-2xl opacity-50"></div>
+      </div>
+    </div>
+ </div>
+</div>
+<hr className="border-2 border-gray-200" />
       <section className="text-gray-600 bg-gray-100 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="text-center mb-20">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
-              Welcome to IFFIONEX
-            </h1>
-            <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500">
-              Your go-to destination for the latest in technology news,
-              insights, and reviews. Explore the ever-evolving world of
-              technology with us.
-            </p>
-            <div className="flex mt-6 justify-center">
-              <div className="w-16 h-1 rounded-full bg-blue-500 inline-flex"></div>
-            </div>
-          </div>
-          <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 flex-shrink-0">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-10 h-10"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-              </div>
-              <div className="flex-grow">
-                <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                  Shooting Stars
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Explore the latest trends and insights in technology.
-                </p>
-              </div>
-            </div>
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 flex-shrink-0">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-10 h-10"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="6" cy="6" r="3"></circle>
-                  <circle cx="6" cy="18" r="3"></circle>
-                  <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                </svg>
-              </div>
-              <div className="flex-grow">
-                <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                  The Catalyzer
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Stay updated with the latest news and reviews in technology.
-                </p>
-              </div>
-            </div>
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-              <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 flex-shrink-0">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-10 h-10"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </div>
-              <div className="flex-grow">
-                <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                  Neptune
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Discover tips and tricks to enhance your tech experience.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="text-gray-600 bg-gray-100 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-10 mx-auto">
           <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
