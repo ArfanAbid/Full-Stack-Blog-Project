@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { NavLink, Link } from 'react-router-dom';
 
 function Home() {
   const [blogs, setBlogs] = useState([]); // Initialize state to store fetched blogs
+  const [isAuthenticated,setIsAuthenticated] = useState(false)
 
   useEffect(() => {
     // Fetch data from an API
@@ -11,11 +13,19 @@ function Home() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []); // Empty dependency array means this effect runs once after the initial render
 
+  useEffect(() => {
+    const result =localStorage.getItem("isAuthenticated");
+    setIsAuthenticated(result);
+
+  }, [localStorage.getItem("isAuthenticated")])
+  
+
   return (
     <>
+    
       <div class=" bg-gray-50 flex items-center ">
         <section
-          class="bg-cover bg-center py-32 w-full"
+          class="bg-cover bg-center py-32 w-full "
           style={{
             backgroundImage: "url('https://source.unsplash.com/random')",
           }}
@@ -28,12 +38,16 @@ function Home() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                   viverra euismod odio, gravida pellentesque urna varius vitae.
                 </p>
-                <a
-                  href="#"
-                  class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600"
-                >
+                {isAuthenticated ?(
+                  <p></p>
+                  )
+                : (
+                  <NavLink to="/login"
+                  className="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">
                   Get Started With Creating Your Own Blogs
-                </a>
+                </NavLink>
+                  )}
+
               </div>
             </div>
           </div>
@@ -74,9 +88,9 @@ function Home() {
             <p className="leading-relaxed text-base">
               {blog.content.substring(0, 100)}...
             </p>
-            <a href={`/blog/${blog.uid}`} className="text-blue-500 hover:text-blue-700">
+            {/* <a href={`/blog/${blog.uid}`} className="text-blue-500 hover:text-blue-700">
               Read More
-            </a>
+            </a> */}
           </div>
         </div>
       ))}

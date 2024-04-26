@@ -1,13 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import IFFIONEX from '../../Images/IFFIONEX.jpg';
 
 function Footer() {
   return (
-    <footer className="bg-white border-gray-200 dark:bg-gray-600">
+    <footer className="bg-gradient-to-r from-slate-500 to-slate-800">
     <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
-            <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
+            <a href="#" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <img src={IFFIONEX} className="h-12 rounded-full border-2 border-white hover:scale-125 transition-all duration-500 cursor-pointer" alt="" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">IFFIONEX</span>
             </a>
             <ul

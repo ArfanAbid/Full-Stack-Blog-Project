@@ -3,9 +3,9 @@ import React from "react";
 function Contact() {
     return (
         
-        <section className="text-gray-600 body-font relative">
-
-            <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+        <section className="bg-gray-600">
+            <h1 className='font-bold text-white flex justify-center text-3xl p-2'>Contact Us </h1>
+            <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
                 <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
                     <iframe
                         width="100%"
@@ -24,26 +24,25 @@ function Contact() {
                     <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
                         <div className="lg:w-1/2 px-6">
                             <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
-                                ADDRESS
+                            <p className="text-sm font-bold">ADDRESS</p>
                             </h2>
                             <p className="mt-1">
-                                Photo booth tattooed prism, portland taiyaki hoodie neutra
-                                typewriter
+                                Bahria Town phase 8, River View Height Rawalpindi 
                             </p>
                         </div>
                         <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
                             <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
-                                EMAIL
+                                <p className="text-sm font-bold">EMAIL</p>
                             </h2>
-                            <a className="text-blue-500 leading-relaxed">example@email.com</a>
+                            <a className="text-blue-500 leading-relaxed">iffionex111@email.com</a>
                             <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
-                                PHONE
+                            <p className="text-sm font-bold">PHONE</p>
                             </h2>
-                            <p className="leading-relaxed">123-456-7890</p>
+                            <p className="leading-relaxed">033458392611</p>
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+                <div className="lg:w-1/3 md:w-1/2 bg-gray-100 rounded-xl p-4  flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
                     <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
                         Feedback
                     </h2>

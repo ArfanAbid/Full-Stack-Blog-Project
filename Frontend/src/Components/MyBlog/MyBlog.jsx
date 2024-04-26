@@ -32,7 +32,7 @@ function MyBlog() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mb-12">
         <br />
       <article>
-        <h2 className="text-2xl font-extrabold text-gray-900">Your Blogs</h2>
+        <h2 className="text-2xl font-extrabold text-gray-900">Your Blogs : </h2>
         <section className="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
           {blogs.map((blog) => (
             <article key={blog.uid} className="relative w-full h-64 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out"
@@ -46,7 +46,7 @@ function MyBlog() {
                     {blog.title}
                  </a>
                 </h3>
-                {blog.content.substring(0, 45)}...
+                {/* {blog.content.substring(0, 45)}... */}
               </div>
             </article>
           ))}
