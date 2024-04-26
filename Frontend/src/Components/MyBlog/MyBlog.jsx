@@ -11,6 +11,7 @@ function MyBlog() {
          const response = await api('http://127.0.0.1:8000/blog/list/');
          // Check if the response contains a 'data' property and it is an array
          if (response && Array.isArray(response.data)) {
+            console.log(response)
            setBlogs(response.data); // Set the 'data' array to the state
          } else {
            console.error('Expected an array of blogs, but received:', response);

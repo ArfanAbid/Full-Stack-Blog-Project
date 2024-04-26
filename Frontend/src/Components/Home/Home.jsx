@@ -8,8 +8,12 @@ function Home() {
   useEffect(() => {
     // Fetch data from an API
     fetch("http://127.0.0.1:8000/blog/view/")
-      .then((response) => response.json())
-      .then((data) => setBlogs(data)) // Update the state with the fetched data
+      .then((response) => {
+        console.log(response);
+        return response.json()})
+      .then((data) => {
+        console.log(data)
+        setBlogs(data)}) // Update the state with the fetched data
       .catch((error) => console.error("Error fetching data:", error));
   }, []); // Empty dependency array means this effect runs once after the initial render
 
