@@ -20,22 +20,30 @@ class BlogView(APIView):
     '''
     API endpoint for accessing the blog List
     '''
-    def get(self, request, *args, **kwargs):
+    def get(self, request, pk=None, *args, **kwargs):
         try:
-            query=BlogModel.objects.filter(user_id=request.user)
-            # search
-            if request.GET.get('search'):
-                search=request.GET.get('search')
-                query=query.filter(Q(title__icontains=search)|Q(content__icontains=search))
-
-            serializer=BlogSerializer(query, many=True)
-            return Response({'message':'Blogs fetched Successfully','data':serializer.data}, status=status.HTTP_200_OK)
+            if pk:
+                # Fetch a single blog
+                query = BlogModel.objects.get(uid=pk)
+                serializer = BlogSerializer(query)
+                return Response({'message': 'Blog fetched successfully', 'data': serializer.data}, status=status.HTTP_200_OK)
+            else:
+                # Fetch list of blogs with optional search
+                query = BlogModel.objects.filter(user_id=request.user)
+                search = request.GET.get('search')
+                if search:
+                    query = query.filter(Q(title__icontains=search) | Q(content__icontains=search))
+                serializer = BlogSerializer(query, many=True)
+                return Response({'message': 'Blogs fetched successfully', 'data': serializer.data}, status=status.HTTP_200_OK)
+        except BlogModel.DoesNotExist:
+            return Response({'message': 'Blog not found'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            return Response({'message':str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'message': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
     '''
     API endpoint for creating a blog
     '''
+    
     def post(self, request, *args, **kwargs):
         try:
             data=request.data
@@ -56,40 +64,31 @@ class BlogView(APIView):
     '''
     API endpoint for updating a blog
     '''
-    def put(self, request, *args, **kwargs):
+    def put(self, request, pk, *args, **kwargs):
         try:
-            data = request.data
-            uid_request = data.get('uid')
-            blog_instance = BlogModel.objects.get(uid=uid_request)
-            
-            # Ensure the user has permission to update this blog
+            blog_instance = BlogModel.objects.get(uid=pk)
             if request.user != blog_instance.user_id:
                 return Response({'message': 'You do not have permission to update this blog'}, status=status.HTTP_403_FORBIDDEN)
-            
-        except BlogModel.DoesNotExist:# if blog_instance is None
-            return Response({'message': 'Blog not found'}, status=status.HTTP_404_NOT_FOUND)
-        
-        try:
             serializer = BlogSerializer(blog_instance, data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
-                return Response({'data': serializer.data, 'message': 'Blog Updated Successfully'}, status=status.HTTP_200_OK)
+                return Response({'data': serializer.data, 'message': 'Blog updated successfully'}, status=status.HTTP_200_OK)
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        except BlogModel.DoesNotExist:
+            return Response({'message': 'Blog not found'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'message': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
     '''
     API endpoint for deleting a blog
     ''' 
 
-    def delete(self, request, *args, **kwargs):
+    def delete(self, request, pk,*args, **kwargs):
         try:
-            data = request.data
-            uid_request = data.get('uid')
-            blog_instance = BlogModel.objects.get(uid=uid_request)
+            blog_instance = BlogModel.objects.get(uid=pk)
             
             # Ensure the user has permission to delete this blog
             if request.user != blog_instance.user_id:
