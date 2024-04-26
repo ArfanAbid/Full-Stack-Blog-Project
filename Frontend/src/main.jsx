@@ -11,6 +11,7 @@ import Login from './Components/Login/Login.jsx'
 import Register from './Components/Register/Register.jsx'
 import MyBlog from './Components/MyBlog/MyBlog.jsx'
 import Createblog from './Components/CreateBlog/Createblog.jsx'
+import DetailBlog from './Components/DetailBlog/DetailBlog.jsx'
 
 
 
@@ -24,6 +25,7 @@ const router=createBrowserRouter(
       <Route path='register' element={<Register/>} />
       <Route path='myblog' element={<MyBlog/>} />
       <Route path='create' element={<Createblog/>} />
+      <Route path='detail/:uid' element={<DetailBlog/>} />
 
     </Route>
   )
