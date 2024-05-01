@@ -14,8 +14,8 @@ from django.db.models import Q
 from rest_framework import filters
 
 class BlogView(APIView):
-    # permission_classes = [IsAuthenticated]
-    # authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     '''
     API endpoint for accessing the blog List

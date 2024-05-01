@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../Utils/api';
+import { Navigate } from 'react-router-dom';
 
 export default function DetailBlog() {
     const { uid } = useParams();
     const [blogData, setBlogData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate=useNavigate()
 
+    // For Displaying Details
     useEffect(() => {
         api(`http://127.0.0.1:8000/blog/detail/${uid}`)
             .then((data) => {
                 console.log(data);
+                // console.log(data.status);
                 setBlogData(data.data);
                 setLoading(false);
             })
@@ -24,44 +28,45 @@ export default function DetailBlog() {
 
     const handleUpdateBlog = async (event) => {
         event.preventDefault();
-
+    
         const formData = new FormData(event.target);
-        const updatedData = Object.fromEntries(formData);
-
+        // Assuming you have a file input with the name 'image'
+        const file = formData.get('image');
+    
         try {
-            const response = await api(`http://127.0.0.1:8000/blog/update/${uid}/`, {
+            const response = await api(`http://127.0.0.1:8000/blog/update/${uid}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updatedData),
+                body: formData, // Directly send FormData
             });
-
+                console.log(response.status);
             if (!response.ok) {
                 throw new Error(`HTTP error: Status ${response.status}`);
             }
-
+    
             const data = await response.json();
             setBlogData(data);
+            navigate('/myblog')
         } catch (err) {
+            console.error('There was an error!', err);
             setError(err.message);
         }
     };
-
+    
     const handleDeleteBlog = async (event) => {
         event.preventDefault();
 
         try {
-            const response = await api(`http://127.0.0.1:8000/blog/delete/${uid}/`, {
+            const response = await api(`http://127.0.0.1:8000/blog/delete/${uid}`, {
                 method: 'DELETE',
             });
-
+                
             if (!response.ok) {
                 throw new Error(`HTTP error: Status ${response.status}`);
             }
 
-            // Redirect or show success message
+            navigate('/myblog')
         } catch (err) {
+            console.error('There was an error!', err);
             setError(err.message);
         }
     };
@@ -112,7 +117,7 @@ export default function DetailBlog() {
                         Update Blog
                     </button>
 
-                    <button type="submit" className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
+                    <button onClick={handleDeleteBlog} type="submit" className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
                         Delete Blog
                     </button>
                     
