@@ -27,7 +27,8 @@ const api = async (url, options = {}) => {
     throw new Error('Network response was not ok');
  }
 
- return response.json();
+//  return response.json();
+ return response;
 };
 
 export default api;

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import api from '../../Utils/api';
+import { useNavigate } from 'react-router-dom';
 
 const CreateBlog = () => {
+  const navigate=useNavigate()
+
  const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -43,6 +46,7 @@ const CreateBlog = () => {
        console.log(responseData);
        setSuccessMessage('Blog created successfully!');
        setErrorMessage(''); // Clear any previous error message
+       navigate("/myblog")
     } catch (error) {
        console.error('There was a problem with your fetch operation:', error);
        setErrorMessage(`There was a problem with your fetch operation: ${error.message}`);

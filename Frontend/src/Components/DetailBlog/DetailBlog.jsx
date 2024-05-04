@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../Utils/api';
-import { Navigate } from 'react-router-dom';
 
 export default function DetailBlog() {
     const { uid } = useParams();
@@ -13,9 +12,10 @@ export default function DetailBlog() {
     // For Displaying Details
     useEffect(() => {
         api(`http://127.0.0.1:8000/blog/detail/${uid}`)
-            .then((data) => {
-                console.log(data);
-                // console.log(data.status);
+            .then((response) => {
+                return response.json();
+
+            }).then((data)=>{
                 setBlogData(data.data);
                 setLoading(false);
             })

@@ -16,7 +16,6 @@ function Header() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // Include any other necessary headers, such as authentication tokens
             },
         })
         .then(response => {
