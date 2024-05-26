@@ -1,4 +1,6 @@
 import React from "react";
+import HomeImg1 from '../../Images/HomeImg1.png'
+
 
 function About() {
   return (
@@ -40,10 +42,9 @@ function About() {
           <div class="hidden lg:block lg:w-1/2  bg-gray-100">
             <div
               class="w-[80%] h-[80%] object-cover rounded-2xl mt-10"
-              style={{
-                backgroundImage: "url('https://source.unsplash.com/random')",
-              }}
-            >
+            //   
+            style={{ backgroundImage: `url(${HomeImg1})` }}
+        >
               <div class="h-full bg-gray-500 rounded-2xl opacity-50"></div>
             </div>
           </div>

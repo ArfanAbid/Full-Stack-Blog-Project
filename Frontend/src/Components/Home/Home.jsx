@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from 'react-router-dom';
+import HomeImg from '../../Images/HomeImg.jpg'
+
 
 function Home() {
   const [blogs, setBlogs] = useState([]); // Initialize state to store fetched blogs
@@ -30,9 +32,7 @@ function Home() {
       <div class=" bg-gray-50 flex items-center ">
         <section
           class="bg-cover bg-center py-32 w-full "
-          style={{
-            backgroundImage: "url('https://source.unsplash.com/random')",
-          }}
+          style={{ backgroundImage: `url(${HomeImg})` }}
         >
           <div class="container mx-auto text-left px-8 text-white">
             <div class="flex items-center">
