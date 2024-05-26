@@ -4,34 +4,52 @@ function About() {
   return (
     <>
       <div class="w-full">
- <div class="flex bg-white h-screen">
-    <div class="flex items-center text-center bg-gray-100 lg:text-left px-8 md:px-12 lg:w-1/2">
-      <div class="bg-gray-100 min-h-screen py-2 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-          <h1 class="text-3xl font-bold text-gray-900 mb-4">About IFFIONEX</h1>
-          <p class="text-lg text-gray-700 mb-6">
-            Welcome to IFFIONEX, your go-to destination for the latest in technology news, insights, and reviews. At IFFIONEX, we're passionate about exploring the ever-evolving world of technology and sharing our knowledge with our readers.
-          </p>
-          <p class="text-lg text-gray-700 mb-6">
-            Our team of experienced writers and tech enthusiasts is dedicated to providing you with high-quality content covering a wide range of topics including software, hardware, gadgets, programming, cybersecurity, artificial intelligence, and much more.
-          </p>
-          <p class="text-lg text-gray-700 mb-6">
-            Whether you're a seasoned tech professional or a curious beginner, IFFIONEX has something for everyone. Stay updated with the latest trends, discover tips and tricks, and dive deep into the fascinating world of technology with us.
-          </p>
-          <p class="text-lg text-gray-700">
-            Thank you for visiting IFFIONEX. We hope you enjoy your time here and find our content informative and inspiring.
-          </p>
+        <div class="flex bg-white h-screen">
+          <div class="flex items-center text-center bg-gray-100 lg:text-left px-8 md:px-12 lg:w-1/2">
+            <div class="bg-gray-100 min-h-screen py-2 px-4 sm:px-6 lg:px-8">
+              <div class="max-w-3xl mx-auto">
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">
+                  About IFFIONEX
+                </h1>
+                <p class="text-lg text-gray-700 mb-6">
+                  Welcome to IFFIONEX, your go-to destination for the latest in
+                  technology news, insights, and reviews. At IFFIONEX, we're
+                  passionate about exploring the ever-evolving world of
+                  technology and sharing our knowledge with our readers.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                  Our team of experienced writers and tech enthusiasts is
+                  dedicated to providing you with high-quality content covering
+                  a wide range of topics including software, hardware, gadgets,
+                  programming, cybersecurity, artificial intelligence, and much
+                  more.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                  Whether you're a seasoned tech professional or a curious
+                  beginner, IFFIONEX has something for everyone. Stay updated
+                  with the latest trends, discover tips and tricks, and dive
+                  deep into the fascinating world of technology with us.
+                </p>
+                <p class="text-lg text-gray-700">
+                  Thank you for visiting IFFIONEX. We hope you enjoy your time
+                  here and find our content informative and inspiring.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden lg:block lg:w-1/2  bg-gray-100">
+            <div
+              class="w-[80%] h-[80%] object-cover rounded-2xl mt-10"
+              style={{
+                backgroundImage: "url('https://source.unsplash.com/random')",
+              }}
+            >
+              <div class="h-full bg-gray-500 rounded-2xl opacity-50"></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="hidden lg:block lg:w-1/2  bg-gray-100">
-      <div class="w-[80%] h-[80%] object-cover rounded-2xl mt-10" style={{ backgroundImage: "url('https://source.unsplash.com/random')" }}>
-        <div class="h-full bg-gray-500 rounded-2xl opacity-50"></div>
-      </div>
-    </div>
- </div>
-</div>
-<hr className="border-2 border-gray-200" />
+      <hr className="border-2 border-gray-200" />
       <section className="text-gray-600 bg-gray-100 body-font">
         <div className="container px-5 py-10 mx-auto">
           <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">

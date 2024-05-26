@@ -92,9 +92,9 @@ function Home() {
             <p className="leading-relaxed text-base">
               {blog.content.substring(0, 100)}...
             </p>
-            {/* <a href={`/blog/${blog.uid}`} className="text-blue-500 hover:text-blue-700">
+            <NavLink to= {`/info/${blog.uid}`} className="text-blue-500 hover:text-blue-700">
               Read More
-            </a> */}
+            </NavLink>
           </div>
         </div>
       ))}

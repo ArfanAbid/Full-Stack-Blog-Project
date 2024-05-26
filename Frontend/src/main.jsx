@@ -12,6 +12,7 @@ import Register from './Components/Register/Register.jsx'
 import MyBlog from './Components/MyBlog/MyBlog.jsx'
 import Createblog from './Components/CreateBlog/Createblog.jsx'
 import DetailBlog from './Components/DetailBlog/DetailBlog.jsx'
+import InfoBlog from './Components/InfoBlog/InfoBlog.jsx'
 
 
 
@@ -26,6 +27,7 @@ const router=createBrowserRouter(
       <Route path='myblog' element={<MyBlog/>} />
       <Route path='create' element={<Createblog/>} />
       <Route path='detail/:uid' element={<DetailBlog/>} />
+      <Route path='info/:uid' element={<InfoBlog/>} />
 
     </Route>
   )
