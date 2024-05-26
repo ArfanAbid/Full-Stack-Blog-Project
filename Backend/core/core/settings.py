@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 EXTERNAL_APPS=[
     'User',
     'Blog',
+    'ContactUs',
     'rest_framework_simplejwt',
     "corsheaders",
 ]
