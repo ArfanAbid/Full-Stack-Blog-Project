@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import IFFIONEX from '../../Images/IFFIONEX.jpg';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 
 function Login() {
@@ -35,6 +37,18 @@ function Login() {
       localStorage.setItem('access_token', access);
       localStorage.setItem('refresh_token', refresh);
       localStorage.setItem("isAuthenticated", true);
+
+      toast.success('Login Successfully ', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+
       navigate('/myblog'); // Redirect to home page
     } catch (error) {
       console.error('There was a problem with your fetch operation:', error);

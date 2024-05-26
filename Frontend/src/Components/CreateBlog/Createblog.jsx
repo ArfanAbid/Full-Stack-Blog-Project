@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../Utils/api';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CreateBlog = () => {
   const navigate=useNavigate()
@@ -11,8 +12,6 @@ const CreateBlog = () => {
     image: null,
  });
 
- const [successMessage, setSuccessMessage] = useState('');
- const [errorMessage, setErrorMessage] = useState('');
 
  const handleChange = (e) => {
     if (e.target.name === 'image') {
@@ -44,12 +43,31 @@ const CreateBlog = () => {
    
        const responseData = await response.json();
        console.log(responseData);
-       setSuccessMessage('Blog created successfully!');
-       setErrorMessage(''); // Clear any previous error message
+
+       toast.success('Blog Created Successfully', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+
        navigate("/myblog")
     } catch (error) {
        console.error('There was a problem with your fetch operation:', error);
-       setErrorMessage(`There was a problem with your fetch operation: ${error.message}`);
+       toast.error('Error in Creating Blog!!!', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
    };
    
@@ -60,9 +78,7 @@ const CreateBlog = () => {
         <div className="max-w-xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
           <div className="p-6">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Create Blog</h2>
-            
-            {successMessage && <div className="text-green-500 mb-4">{successMessage}</div>}
-            {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
+
 
             <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-4">
               <div>

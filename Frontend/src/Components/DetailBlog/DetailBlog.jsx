@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../Utils/api';
+import { toast } from 'react-toastify';
+
 
 export default function DetailBlog() {
     const { uid } = useParams();
@@ -45,6 +47,16 @@ export default function DetailBlog() {
     
             const data = await response.json();
             setBlogData(data);
+            toast.info('Blog Updated Successfully', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
             navigate('/myblog')
         } catch (err) {
             console.error('There was an error!', err);
@@ -63,6 +75,17 @@ export default function DetailBlog() {
             if (!response.ok) {
                 throw new Error(`HTTP error: Status ${response.status}`);
             }
+
+            toast.info('Blog Deleted Successfully', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
 
             navigate('/myblog')
         } catch (err) {

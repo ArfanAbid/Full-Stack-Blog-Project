@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
+
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -26,15 +28,37 @@ function Contact() {
                 throw new Error('Network response was not ok');
             }
             // Handle success here, e.g., show a message
-            alert('Form submitted successfully!');
+            toast.success('Response has been Submitted Successfully', {
+                position: "top-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+
             setFormData({ username: '', email: '', message: '' }); // Reset form
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
+
+            toast.error('Failed to submit your Response!!!', {
+                position: "top-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
     };
 
     return (
         <section className="bg-gray-600">
+            
             <h1 className='font-bold text-white flex justify-center text-3xl p-2'>Contact Us </h1>
             <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
                 <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">

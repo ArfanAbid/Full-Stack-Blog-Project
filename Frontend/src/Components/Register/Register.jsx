@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import IFFIONEX from '../../Images/IFFIONEX.jpg';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 export default function Register() {
@@ -48,6 +49,17 @@ export default function Register() {
       setPassword('');
       setConfirmPassword('');
       setIsSubmitting(false);
+      toast.info('Registered Successfully', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    
+        });
     } catch (error) {
       console.error('There was a problem with your fetch operation:', error);
       setMessage('There was a problem with your registration. Please try again.');

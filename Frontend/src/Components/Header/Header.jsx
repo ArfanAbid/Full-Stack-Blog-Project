@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import api from '../../Utils/api';
 import { useNavigate } from 'react-router-dom';
 import IFFIONEX from '../../Images/IFFIONEX.jpg';
+import { toast } from 'react-toastify';
 
 
 function Header() {
@@ -30,6 +31,18 @@ function Header() {
             localStorage.clear(); // Assuming 'jwtToken' is the key used to store the JWT token
             setIsLoggedIn(false);
             navigate('/login'); // Use replace option to prevent going back to the previous page
+
+            toast.info('Logout Successfully', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            
+                });
         })
         .catch((error) => {
             console.error('Error:', error);
