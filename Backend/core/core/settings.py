@@ -100,7 +100,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Blog_db',  # Name database according to your choice
         'USER': 'root',
-        'PASSWORD': '*******', #you set while Settingup MySQL
+        'PASSWORD': '******', #you set while Settingup MySQL
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -206,7 +206,8 @@ SIMPLE_JWT = {
 
 
 '''
-arfan
-arfan@gmail.com
-123
+Created By : Arfan Abid
+Github : https://github.com/ArfanAbid
+LinkedIn : https://www.linkedin.com/in/arfan-abid-152217270/
+
 '''

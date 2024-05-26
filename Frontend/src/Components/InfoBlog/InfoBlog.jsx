@@ -49,10 +49,10 @@ export default function InfoPage() {
                     </div>
                     <div className="hidden lg:block lg:w-1/2 bg-gray-100">
                         <div
-                            className="w-[80%] h-[80%] object-cover rounded-2xl mt-10"
+                            className="w-[80%] h-[80%]  bg-cover bg-center rounded-2xl mt-10"
                             style={{ backgroundImage: `url(http://127.0.0.1:8000/${blogData.image})` }}
                         >
-                            <div className="h-full bg-gray-500 rounded-2xl opacity-50"></div>
+                            <div className="h-full bg-gray-500 rounded-2xl opacity-10"></div>
                         </div>
                     </div>
                 </div>
