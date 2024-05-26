@@ -6,8 +6,8 @@ pillow
 django-filter
 django-cors-headers
 markdown 
-#mysql
-#mysql-connector-python
-#mysql-connector-python
+mysql
+mysql-connector
+mysql-connector-python
 #install latest version of node must be > 18 
 
