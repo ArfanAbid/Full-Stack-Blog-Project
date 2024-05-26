@@ -100,7 +100,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Blog_db',  # Name database according to your choice
         'USER': 'root',
-        'PASSWORD': '******', #you set while Settingup MySQL
+        'PASSWORD': '*******', #you set while Settingup MySQL
         'HOST': 'localhost',
         'PORT': '3306',
     }
